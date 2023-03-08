@@ -34,10 +34,11 @@ public struct EasyCustomTabBar<Content:View>: View {
     private var tabBarHeight: CGFloat = 80
     
     // Tab Item
-    private var tabItemFont: Font = .system(size: 10, weight: .semibold, design: .rounded)
+    private var tabItemFont: Font = .system(size: 10)
     private var tabItemActiveColor: Color = .blue
     private var tabItemInActiveColor: Color = .gray
     private var tabItemBgColor: Color = .clear
+    private var tabItemCornerRadius: CGFloat = 6
     
     public init(tabs: [TabItem], selection: Binding<Int>, tabBarStyle: TabBarStyle, @ViewBuilder content: () -> Content) {
         self._selection = selection
@@ -175,6 +176,7 @@ extension EasyCustomTabBar {
             Text(tab.title)
                 .font(tabItemFont)
         }
+        .cornerRadius(tabItemCornerRadius)
         .foregroundColor(selection == index ? tabItemActiveColor : tabItemInActiveColor)
         .padding(.vertical, 8)
         .frame(maxWidth: .infinity)
@@ -193,7 +195,7 @@ extension EasyCustomTabBar {
         .background(
             ZStack {
                 if localSelectedIndex == index {
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: tabItemCornerRadius)
                         .fill(tabItemBgColor)
                         .matchedGeometryEffect(id: "bg_rectangle", in: namespace)
                 }
@@ -304,5 +306,10 @@ extension EasyCustomTabBar {
         return newSelf
     }
     
+    public func tabItemCornerRadius(_ value: CGFloat) -> Self {
+        var newSelf = self
+        newSelf.tabItemCornerRadius = value
+        return newSelf
+    }
 }
 

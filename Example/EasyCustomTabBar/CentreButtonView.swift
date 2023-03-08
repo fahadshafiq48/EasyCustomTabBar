@@ -11,7 +11,7 @@ import SwiftUI
 struct CentreButtonView: View {
     var body: some View {
         ZStack {
-            LinearGradient(colors: [Color.blue, Color.blue.opacity(0.3)], startPoint: .bottom, endPoint: .top)
+            LinearGradient(colors: [Color.yellow.opacity(0.8), Color.yellow.opacity(0.3)], startPoint: .bottom, endPoint: .top)
             
             VStack(spacing: 15) {
                 Text("Hi!")

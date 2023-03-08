@@ -24,7 +24,7 @@ struct TabBarHandler: View {
         ZStack {
             
             // tabBarStyle: This will change the view of your tabbar
-            EasyCustomTabBar(tabs: items, selection: $selectedTabIndex, tabBarStyle: .centeredButton) {
+            EasyCustomTabBar(tabs: items, selection: $selectedTabIndex, tabBarStyle: .simple) {
                 Tab1()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .tabBarItem(tab: items[0], tabIndex: 0, selection: $selectedTabIndex)
@@ -49,13 +49,14 @@ struct TabBarHandler: View {
             // In case of centred button tabbar style write the
             .centreBtnPressed($centreBtnPressed)
             .tabBarShadow(true)
-            .tabItemBgColor(Color.purple.opacity(0.2))
-            .tabItemActiveColor(Color.purple)
+            .tabItemBgColor(Color.clear)
+            .tabItemActiveColor(Color.blue)
             
 //            .centreBtn(TabItem(title: "", image: Image("addIcon")))
             
             // if you want to change centre button image on its action the do this
             .centreBtn(centreBtnPressed == true ? TabItem(title: "", image: Image("closeIcon")) : TabItem(title: "", image: Image("addIcon")))
+//            .tabItemCornerRadius(12)
         }
         .frame(alignment: .bottom)
         .navigationBarHidden(true)
