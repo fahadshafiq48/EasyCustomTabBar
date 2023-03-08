@@ -12,4 +12,9 @@ public struct TabItem: Equatable, Identifiable {
     public let id = UUID()
     public var title: String
     public var image: Image
+    
+    public init(title: String, image: Image) {
+        self.title = title
+        self.image = image
+    }
 }

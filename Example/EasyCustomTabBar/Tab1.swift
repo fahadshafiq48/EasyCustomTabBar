@@ -10,7 +10,8 @@ import SwiftUI
 
 struct Tab1: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("I'm in Tab 1")
+            .font(.system(size: 30, weight: .bold, design: .rounded))
     }
 }
 

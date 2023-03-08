@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
+import EasyCustomTabBar
 
 struct TabBarHandler: View {
     
     let items: [TabItem] = [
-        TabItem(title: "Home", image: Image("home")),
-        TabItem(title: "Transaction", image: Image("transaction")),
-        TabItem(title: "Budget", image: Image("pieChart")),
-        TabItem(title: "Profile", image: Image("user"))]
+        TabItem(title: "Tab 1", image: Image("tab1")),
+        TabItem(title: "Tab 2", image: Image("tab2")),
+        TabItem(title: "Tab 3", image: Image("tab3")),
+        TabItem(title: "Tab 4", image: Image("tab4"))]
     
     @State var selectedTabIndex = 0
     @State var centreBtnPressed: Bool? = false
@@ -22,31 +23,39 @@ struct TabBarHandler: View {
         
         ZStack {
             
-            EasyCustomTabBar(tabs: items, selection: $selectedTabIndex, tabBarStyle: .separate) {
-                HomeVC()
+            // tabBarStyle: This will change the view of your tabbar
+            EasyCustomTabBar(tabs: items, selection: $selectedTabIndex, tabBarStyle: .centeredButton) {
+                Tab1()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .tabBarItem(tab: items[0], tabIndex: 0, selection: $selectedTabIndex)
 
-                TransactionsVC()
+                Tab2()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .tabBarItem(tab: items[1], tabIndex: 1, selection: $selectedTabIndex)
 
-                BudgetVC()
+                Tab3()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .tabBarItem(tab: items[2], tabIndex: 2, selection: $selectedTabIndex)
 
-                ProfileVC()
+                Tab4()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .tabBarItem(tab: items[3], tabIndex: 3, selection: $selectedTabIndex)
 
+                // [Optional] In case of centred button tabbar style write the below code
                 if centreBtnPressed == true {
-                    TabBarAddVC()
+                    CentreButtonView()
                 }
             }
+            // In case of centred button tabbar style write the
             .centreBtnPressed($centreBtnPressed)
             .tabBarShadow(true)
-            .tabItemBgColor(Color.themeLight)
-            .centreBtn(TabItem(title: "", image: Image("addIcon")))
+            .tabItemBgColor(Color.purple.opacity(0.2))
+            .tabItemActiveColor(Color.purple)
+            
+//            .centreBtn(TabItem(title: "", image: Image("addIcon")))
+            
+            // if you want to change centre button image on its action the do this
+            .centreBtn(centreBtnPressed == true ? TabItem(title: "", image: Image("closeIcon")) : TabItem(title: "", image: Image("addIcon")))
         }
         .frame(alignment: .bottom)
         .navigationBarHidden(true)

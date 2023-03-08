@@ -10,7 +10,20 @@ import SwiftUI
 
 struct CentreButtonView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            LinearGradient(colors: [Color.blue, Color.blue.opacity(0.3)], startPoint: .bottom, endPoint: .top)
+            
+            VStack(spacing: 15) {
+                Text("Hi!")
+                    .font(.system(size: 48, weight: .bold, design: .rounded))
+                
+                Text("I'm in Centre Button View")
+                    .font(.system(size: 22, weight: .bold, design: .rounded))
+            }
+            .frame(alignment: .bottom)
+            .padding([.bottom], 105)
+        }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

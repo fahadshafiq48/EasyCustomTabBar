@@ -40,7 +40,7 @@ struct TabBarItemViewModifier: ViewModifier {
 // MARK: -  Extenstion
 extension View {
     
-    func tabBarItem(tab: TabItem, tabIndex: Int, selection: Binding<Int>) -> some View {
+    public func tabBarItem(tab: TabItem, tabIndex: Int, selection: Binding<Int>) -> some View {
         self
             .modifier(TabBarItemViewModifier(tab: tab, tabIndex: tabIndex, selection: selection))
     }

@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EasyCustomTabBar'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of EasyCustomTabBar.'
+  s.version          = '1.0.0'
+  s.summary          = 'EasyCustomTabBar is a customizable tabbar with different style options.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,20 +18,20 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  EasyCustomTabBar is SwiftUI based pod which allows you to create highly customizable tabbar in different styles.
                        DESC
 
-  s.homepage         = 'https://github.com/Fahad Shafiq/EasyCustomTabBar'
+  s.homepage         = 'https://github.com/fahadshafiq48/EasyCustomTabBar'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Fahad Shafiq' => 'fahadshafiq48@gmail.com' }
-  s.source           = { :git => 'https://github.com/Fahad Shafiq/EasyCustomTabBar.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/fahadshafiq48/EasyCustomTabBar.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '14.0'
 
   s.source_files = 'EasyCustomTabBar/Classes/**/*'
-  
+  s.swift_version = '5.0'
   # s.resource_bundles = {
   #   'EasyCustomTabBar' => ['EasyCustomTabBar/Assets/*.png']
   # }
