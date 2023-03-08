@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = 'https://github.com/fahadshafiq48/EasyCustomTabBar'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots     = 'https://raw.githubusercontent.com/fahadshafiq48/EasyCustomTabBar/main/.github/centred.png', 'https://raw.githubusercontent.com/fahadshafiq48/EasyCustomTabBar/main/.github/separate.png', 'https://raw.githubusercontent.com/fahadshafiq48/EasyCustomTabBar/main/.github/simple.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Fahad Shafiq' => 'fahadshafiq48@gmail.com' }
   s.source           = { :git => 'https://github.com/fahadshafiq48/EasyCustomTabBar.git', :tag => s.version.to_s }
