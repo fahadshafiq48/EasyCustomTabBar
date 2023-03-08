@@ -1,6 +1,6 @@
 # EasyCustomTabBar
 
-[![CI Status](https://img.shields.io/travis/fahadshafiq48/EasyCustomTabBar.svg?style=flat)](https://travis-ci.org/Fahad Shafiq/EasyCustomTabBar)
+[![CI Status](https://img.shields.io/travis/fahadshafiq48/EasyCustomTabBar.svg?style=flat)](https://travis-ci.org/fahadshafiq48/EasyCustomTabBar)
 [![Version](https://img.shields.io/cocoapods/v/EasyCustomTabBar.svg?style=flat)](https://cocoapods.org/pods/EasyCustomTabBar)
 [![License](https://img.shields.io/cocoapods/l/EasyCustomTabBar.svg?style=flat)](https://cocoapods.org/pods/EasyCustomTabBar)
 [![Platform](https://img.shields.io/cocoapods/p/EasyCustomTabBar.svg?style=flat)](https://cocoapods.org/pods/EasyCustomTabBar)
