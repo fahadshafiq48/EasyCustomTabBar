@@ -5,8 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/EasyCustomTabBar.svg?style=flat)](https://cocoapods.org/pods/EasyCustomTabBar)
 [![Platform](https://img.shields.io/cocoapods/p/EasyCustomTabBar.svg?style=flat)](https://cocoapods.org/pods/EasyCustomTabBar)
 
-- Simple
-![Simple Tab](https://raw.githubusercontent.com/fahadshafiq48/EasyCustomTabBar/main/.github/EasyCustomTabBar.gif)
+
+![tabbar](https://raw.githubusercontent.com/fahadshafiq48/EasyCustomTabBar/main/.github/EasyCustomTabBar.gif)
 
 ## Example
 
@@ -66,13 +66,16 @@ Choose the tabBarStyle according to your requirement. This will set the actual v
 Available options are: simple, separate, centeredButton
 
 - Centred Button
-![centred Tab](https://raw.githubusercontent.com/fahadshafiq48/EasyCustomTabBar/main/.github/centred)
+
+![centred Tab](https://raw.githubusercontent.com/fahadshafiq48/EasyCustomTabBar/main/.github/centred.png)
 
 - Separate
-![Separate Tab](https://raw.githubusercontent.com/fahadshafiq48/EasyCustomTabBar/main/.github/separate)
+
+![Separate Tab](https://raw.githubusercontent.com/fahadshafiq48/EasyCustomTabBar/main/.github/separate.png)
 
 - Simple
-![Simple Tab](https://raw.githubusercontent.com/fahadshafiq48/EasyCustomTabBar/main/.github/simple)
+
+![Simple Tab](https://raw.githubusercontent.com/fahadshafiq48/EasyCustomTabBar/main/.github/simple.png)
 
 
 ### Step 5 (In case of Centred Button Tabbar Style)
