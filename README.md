@@ -164,8 +164,29 @@ Here are some properties which you can add on your EasyCustomTabBar block
 - centreBtnHeightWidth
 - centreBtnBgColor
 - centreBtnTextColor
+
+### Tabbar Item Badge
+
+You can add badges on your tabbar item.
+Here are steps which you can follow to deal with badges:
+
+```ruby
+// Tab item on index 0 and 2 will have badge with following code
+@State var tabIndexBadges: Dictionary<Int, String>? = [0: "2", 2: "99+"] 
+
+EasyCustomTabBar(/..) {
+    // Make your tabbar as mentioned above in the documentation 
+    // or check the example project
+}
+.badgeItems($tabIndexBadges)
+```
     
-    
+#### Tabbar Item Badge Customization:
+You can use following properties to customize badges
+- badgeFont
+- badgeBgColor
+- badgeTextColor
+
 ## Author
 
 Fahad Shafiq, fahadshafiq48@gmail.com
