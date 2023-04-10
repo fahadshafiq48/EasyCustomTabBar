@@ -44,7 +44,9 @@ struct BadgeViewModifier: ViewModifier {
     let badgeTextColor: Color?
     
     func body(content: Content) -> some View {
-        content
+        
+        if #available(iOS 15.0, *) {
+            content
             .overlay(alignment: .top) {
                 if text != nil, text != "" {
                     text.map { value in
@@ -63,6 +65,28 @@ struct BadgeViewModifier: ViewModifier {
                     }
                 }
             }
+        } else {
+            // Fallback on earlier versions
+            ZStack {
+                content
+                if text != nil, text != "" {
+                    text.map { value in
+                        Text(value)
+                            .fixedSize(horizontal: true, vertical: false)
+                            .font(badgeFont)
+                            .foregroundColor(badgeTextColor)
+                            .padding(.horizontal, value.count == 1 ? 2 : 6)
+                            .padding(.vertical, 2)
+                            .background(
+                                Capsule()
+                                    .fill(badgeBgColor ?? .red)
+                                    .if(value.count == 1) { $0.aspectRatio(1, contentMode: .fill) }
+                            )
+                            .offset(x: 12, y: -20)
+                    }
+                }
+            }
+        }
     }
 }
 
