@@ -37,12 +37,40 @@ struct TabBarItemViewModifier: ViewModifier {
     }
 }
 
+struct BadgeViewModifier: ViewModifier {
+    let text: String?
+    let badgeFont: Font?
+    let badgeBgColor: Color?
+    let badgeTextColor: Color?
+    
+    func body(content: Content) -> some View {
+        content
+            .overlay(alignment: .top) {
+                if text != nil, text != "" {
+                    text.map { value in
+                        Text(value)
+                            .fixedSize(horizontal: true, vertical: false)
+                            .font(badgeFont)
+                            .foregroundColor(badgeTextColor)
+                            .padding(.horizontal, value.count == 1 ? 2 : 6)
+                            .padding(.vertical, 2)
+                            .background(
+                                Capsule()
+                                    .fill(badgeBgColor ?? .red)
+                                    .if(value.count == 1) { $0.aspectRatio(1, contentMode: .fill) }
+                            )
+                            .offset(x: 16, y: -2)
+                    }
+                }
+            }
+    }
+}
+
 // MARK: -  Extenstion
 extension View {
     
     public func tabBarItem(tab: TabItem, tabIndex: Int, selection: Binding<Int>) -> some View {
-        self
-            .modifier(TabBarItemViewModifier(tab: tab, tabIndex: tabIndex, selection: selection))
+        self.modifier(TabBarItemViewModifier(tab: tab, tabIndex: tabIndex, selection: selection))
     }
     
     func addTabBarShadow(showShodow: Bool) -> some View {
@@ -52,6 +80,19 @@ extension View {
             }
         }
     }
+    
+    func customBadge(value: String?, badgeFont: Font?, badgeBgColor: Color?, badgeTextColor: Color?) -> some View {
+        modifier(BadgeViewModifier(text: value, badgeFont: badgeFont, badgeBgColor: badgeBgColor, badgeTextColor: badgeTextColor))
+    }
+    
+    @ViewBuilder func `if`<Result: View>(_ condition: Bool, closure: @escaping (Self) -> Result) -> some View {
+        if condition {
+            closure(self)
+        } else {
+            self
+        }
+    }
 }
+
 
 

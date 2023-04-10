@@ -16,6 +16,7 @@ public struct EasyCustomTabBar<Content:View>: View {
     @Binding private var selection: Int
     @Binding private var centreBtnPressed: Bool?
     @State private var localSelectedIndex: Int = 0
+    @Binding private var badgeItems: Dictionary<Int, String>?
     
     // Centre Button
     private var centreBtn: TabItem = TabItem(title: "", image: Image(""))
@@ -40,9 +41,15 @@ public struct EasyCustomTabBar<Content:View>: View {
     private var tabItemBgColor: Color = .clear
     private var tabItemCornerRadius: CGFloat = 6
     
+    // Badge
+    private var badgeFont: Font = .system(size: 12)
+    private var badgeBgColor: Color = .red
+    private var badgeTextColor: Color = .white
+    
     public init(tabs: [TabItem], selection: Binding<Int>, tabBarStyle: TabBarStyle, @ViewBuilder content: () -> Content) {
         self._selection = selection
         self._centreBtnPressed = .constant(false)
+        self._badgeItems = .constant(nil)
         self.content = content()
         self.tabs = tabs
         self.tabBarStyle = tabBarStyle
@@ -181,6 +188,7 @@ extension EasyCustomTabBar {
         .padding(.vertical, 8)
         .frame(maxWidth: .infinity)
         .background(tabItemBgColor)
+        .customBadge(value: badgeItems?.filter({$0.key == index}).first?.value, badgeFont: badgeFont, badgeBgColor: badgeBgColor, badgeTextColor: badgeTextColor)
     }
     
     private func itemWithBG(tab: TabItem, index: Int) -> some View {
@@ -201,6 +209,7 @@ extension EasyCustomTabBar {
                 }
             }
         )
+        .customBadge(value: badgeItems?.filter({$0.key == index}).first?.value, badgeFont: badgeFont, badgeBgColor: badgeBgColor, badgeTextColor: badgeTextColor)
     }
 }
 
@@ -311,5 +320,29 @@ extension EasyCustomTabBar {
         newSelf.tabItemCornerRadius = value
         return newSelf
     }
+    
+    //MARK: Badge Methods
+    public func badgeFont(_ value: Font) -> Self {
+        var newSelf = self
+        newSelf.badgeFont = value
+        return newSelf
+    }
+    
+    public func badgeBgColor(_ value: Color) -> Self {
+        var newSelf = self
+        newSelf.badgeBgColor = value
+        return newSelf
+    }
+    
+    public func badgeTextColor(_ value: Color) -> Self {
+        var newSelf = self
+        newSelf.badgeTextColor = value
+        return newSelf
+    }
+    
+    public func badgeItems(_ value: Binding<Dictionary<Int, String>?>) -> Self {
+        var newSelf = self
+        newSelf._badgeItems = value
+        return newSelf
+    }
 }
-
