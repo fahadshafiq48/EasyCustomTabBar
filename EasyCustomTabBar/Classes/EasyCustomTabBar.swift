@@ -90,6 +90,7 @@ extension EasyCustomTabBar {
                     tabViewItem(tab: tabs[index], index: index)
                         .onTapGesture {
                             selection = index
+                            centreBtnPressed = false
                         }
                 }
             }
@@ -106,6 +107,7 @@ extension EasyCustomTabBar {
                     itemWithBG(tab: tabs[index], index: index)
                         .onTapGesture {
                             selection = index
+                            centreBtnPressed = false
                         }
                 }
             }
@@ -154,6 +156,7 @@ extension EasyCustomTabBar {
                                 tabViewItem(tab: tabs[index], index: index)
                                     .onTapGesture {
                                         selection = index // Switch the tab
+                                        centreBtnPressed = false
                                     }
                             }
                         }
@@ -162,6 +165,7 @@ extension EasyCustomTabBar {
                                 tabViewItem(tab: tabs[index], index: index)
                                     .onTapGesture {
                                         selection = index // Switch the tab
+                                        centreBtnPressed = false
                                     }
                             }
                         }
